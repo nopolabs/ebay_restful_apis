@@ -1,0 +1,69 @@
+{
+    "name": "nopolabs/ebay_restful_apis",
+    "description": "",
+    "keywords": [
+        "swagger",
+        "php",
+        "sdk",
+        "api"
+    ],
+    "homepage": "http://github.com/nopolabs/ebay_restful_apis",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Swagger and contributors",
+            "homepage": "https://github.com/swagger-api/swagger-codegen"
+        },
+        {
+            "name": "Dan Revel",
+            "homepage": "https://nopolabs.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.2",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "guzzlehttp/guzzle": "^6.2",
+        "sainsburys/guzzle-oauth2-plugin": "^3.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^4.8",
+        "squizlabs/php_codesniffer": "~2.6",
+        "friendsofphp/php-cs-fixer": "^1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Nopolabs\\EBay\\Commerce\\Catalog\\" : "commerce_catalog/lib/",
+            "Nopolabs\\EBay\\Commerce\\Taxonomy\\" : "commerce_taxonomy/lib/",
+            "Nopolabs\\EBay\\Commerce\\Translation\\" : "commerce_translation/lib/",
+            "Nopolabs\\EBay\\Developer\\Analytics\\" : "developer_analytics/lib/",
+            "Nopolabs\\EBay\\Sell\\Account\\" : "sell_account/lib/",
+            "Nopolabs\\EBay\\Sell\\Analytics\\" : "sell_analytics/lib/",
+            "Nopolabs\\EBay\\Sell\\Compliance\\" : "sell_compliance/lib/",
+            "Nopolabs\\EBay\\Sell\\Fulfillment\\" : "sell_fulfillment/lib/",
+            "Nopolabs\\EBay\\Sell\\Inventory\\" : "sell_inventory/lib/",
+            "Nopolabs\\EBay\\Sell\\Logistics\\" : "sell_logistics/lib/",
+            "Nopolabs\\EBay\\Sell\\Marketing\\" : "sell_marketing/lib/",
+            "Nopolabs\\EBay\\Sell\\Metadata\\" : "sell_metadata/lib/",
+            "Nopolabs\\EBay\\Api\\Factory\\" : "api_factory/src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Nopolabs\\EBay\\Commerce\\Catalog\\" : "commerce_catalog/test/",
+            "Nopolabs\\EBay\\Commerce\\Taxonomy\\" : "commerce_taxonomy/test/",
+            "Nopolabs\\EBay\\Commerce\\Translation\\" : "commerce_translation/test/",
+            "Nopolabs\\EBay\\Developer\\Analytics\\" : "developer_analytics/test/",
+            "Nopolabs\\EBay\\Sell\\Account\\" : "sell_account/test/",
+            "Nopolabs\\EBay\\Sell\\Analytics\\" : "sell_analytics/test/",
+            "Nopolabs\\EBay\\Sell\\Compliance\\" : "sell_compliance/test/",
+            "Nopolabs\\EBay\\Sell\\Fulfillment\\" : "sell_fulfillment/test/",
+            "Nopolabs\\EBay\\Sell\\Inventory\\" : "sell_inventory/test/",
+            "Nopolabs\\EBay\\Sell\\Logistics\\" : "sell_logistics/test/",
+            "Nopolabs\\EBay\\Sell\\Marketing\\" : "sell_marketing/test/",
+            "Nopolabs\\EBay\\Sell\\Metadata\\" : "sell_metadata/test/",
+            "Nopolabs\\EBay\\Api\\Factory\\" : "api_factory/src/"
+        }
+    }
+}

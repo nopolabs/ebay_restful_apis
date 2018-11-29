@@ -1,0 +1,17 @@
+# OrderSearchPagedCollection
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**href** | **string** | The URI of the getOrders call request that produced the current page of the result set. | [optional] 
+**limit** | **int** | The maximum number of orders returned per page of the result set. The limit value can be passed in as a query parameter, or if omitted, its value defaults to 50. Note: If this is the last or only page of the result set, the page may contain fewer orders than the limit value. To determine the number of pages in a result set, divide the total value (total number of orders matching input criteria) by this limit value, and then round up to the next integer. For example, if the total value was 120 (120 total orders) and the limit value was 50 (show 50 orders per page), the total number of pages in the result set is three, so the seller would have to make three separate getOrders calls to view all orders matching the input criteria. Default: 50 | [optional] 
+**next** | **string** | The getOrders call URI to use if you wish to view the next page of the result set. For example, the following URI returns records 41 thru 50 from the collection of orders: path/order?limit&#x3D;10&amp;amp;offset&#x3D;40 This field is only returned if there is a next page of results to view based on the current input criteria. | [optional] 
+**offset** | **int** | This integer value indicates the actual position that the first order returned on the current page has in the results set. So, if you wanted to view 11th order of the result set, you would set the offset value in the request to 10. In the request, you can use the offset parameter in conjunction with the limit parameter to control the pagination of the output. For example, if offset is set to 30 and limit is set to 10, the call retrieves orders 31 thru 40 from the resulting collection of orders. Note: This feature employs a zero-based list, where the first item in the list has an offset of 0.Default: 0 (zero) | [optional] 
+**orders** | [**\Nopolabs\EBay\Sell\Fulfillment\Model\Order[]**](Order.md) | This array contains one or more orders that are part of the current result set, that is controlled by the input criteria. The details of each order include information about the buyer, order history, shipping fulfillments, line items, costs, payments, and order fulfillment status. By default, orders are returned according to creation date (oldest to newest), but the order will vary according to any filter that is set in request. | [optional] 
+**prev** | **string** | The getOrders call URI for the previous result set. For example, the following URI returns orders 21 thru 30 from the collection of orders: path/order?limit&#x3D;10&amp;amp;offset&#x3D;20 This field is only returned if there is a previous page of results to view based on the current input criteria. | [optional] 
+**total** | **int** | The total number of orders in the results set based on the current input criteria. Note: If no orders are found, this field is returned with a value of 0. | [optional] 
+**warnings** | [**\Nopolabs\EBay\Sell\Fulfillment\Model\Error[]**](Error.md) | This array is returned if one or more errors or warnings occur with the call request. | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
