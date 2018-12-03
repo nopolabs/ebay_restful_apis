@@ -91,9 +91,9 @@ class ApiFactory
     public function __construct(ApiConfig $config, Client $oauth2Client = null)
     {
         $this->baseUri = $config->getBaseUri();
+        $this->scope = $config->getScope();
         $this->clientId = $config->getClientId();
         $this->clientSecret = $config->getClientSecret();
-        $this->scope = $config->getScope();
 
         $this->oauth2Client = $oauth2Client;
     }
@@ -434,7 +434,7 @@ class ApiFactory
         return new MarketplaceApi($client, $config);
     }
 
-    private function getOauth2Client() : Client
+    protected function getOauth2Client() : Client
     {
         if ($this->oauth2Client === null) {
             $oauthConfig = [
@@ -463,12 +463,12 @@ class ApiFactory
         return $this->oauth2Client;
     }
 
-    private function updateHost(string $host) : string
+    protected function updateHost(string $host) : string
     {
-        return $this->baseUri.substr($host, \strlen(self::API_EBAY_COM));
+        return $this->baseUri.parse_url($host, PHP_URL_PATH);
     }
 
-    private function getCommerceCatalogConfiguration() : Commerce_Catalog_Configuration
+    protected function getCommerceCatalogConfiguration() : Commerce_Catalog_Configuration
     {
         if ($this->commerceCatalogConfig === null) {
             $config = Commerce_Catalog_Configuration::getDefaultConfiguration();
@@ -481,7 +481,7 @@ class ApiFactory
         return $this->commerceCatalogConfig;
     }
 
-    private function getCommerceTaxonomyConfiguration() : Commerce_Taxonomy_Configuration
+    protected function getCommerceTaxonomyConfiguration() : Commerce_Taxonomy_Configuration
     {
         if ($this->commerceTaxonomyConfig === null) {
             $config = Commerce_Taxonomy_Configuration::getDefaultConfiguration();
@@ -494,7 +494,7 @@ class ApiFactory
         return $this->commerceTaxonomyConfig;
     }
 
-    private function getCommerceTranslationConfiguration() : Commerce_Translation_Configuration
+    protected function getCommerceTranslationConfiguration() : Commerce_Translation_Configuration
     {
         if ($this->commerceTranslationConfig === null) {
             $config = Commerce_Translation_Configuration::getDefaultConfiguration();
@@ -507,7 +507,7 @@ class ApiFactory
         return $this->commerceTranslationConfig;
     }
 
-    private function getDeveloperAnalyticsConfiguration() : Developer_Analytics_Configuration
+    protected function getDeveloperAnalyticsConfiguration() : Developer_Analytics_Configuration
     {
         if ($this->developerAnalyticsConfig === null) {
             $config = Developer_Analytics_Configuration::getDefaultConfiguration();
@@ -520,7 +520,7 @@ class ApiFactory
         return $this->developerAnalyticsConfig;
     }
 
-    private function getSellAccountConfiguration() : Sell_Account_Configuration
+    protected function getSellAccountConfiguration() : Sell_Account_Configuration
     {
         if ($this->sellAccountConfig === null) {
             $config = Sell_Account_Configuration::getDefaultConfiguration();
@@ -533,7 +533,7 @@ class ApiFactory
         return $this->sellAccountConfig;
     }
 
-    private function getSellAnalyticsConfiguration() : Sell_Analytics_Configuration
+    protected function getSellAnalyticsConfiguration() : Sell_Analytics_Configuration
     {
         if ($this->sellAnalyticsConfig === null) {
             $config = Sell_Analytics_Configuration::getDefaultConfiguration();
@@ -546,7 +546,7 @@ class ApiFactory
         return $this->sellAnalyticsConfig;
     }
 
-    private function getSellComplianceConfiguration() : Sell_Compliance_Configuration
+    protected function getSellComplianceConfiguration() : Sell_Compliance_Configuration
     {
         if ($this->sellComplianceConfig === null) {
             $config = Sell_Compliance_Configuration::getDefaultConfiguration();
@@ -559,7 +559,7 @@ class ApiFactory
         return $this->sellComplianceConfig;
     }
 
-    private function getSellFulfillmentConfiguration() : Sell_Fulfillment_Configuration
+    protected function getSellFulfillmentConfiguration() : Sell_Fulfillment_Configuration
     {
         if ($this->sellFulfillmentConfig === null) {
             $config = Sell_Fulfillment_Configuration::getDefaultConfiguration();
@@ -572,7 +572,7 @@ class ApiFactory
         return $this->sellFulfillmentConfig;
     }
 
-    private function getSellInventoryConfiguration() : Sell_Inventory_Configuration
+    protected function getSellInventoryConfiguration() : Sell_Inventory_Configuration
     {
         if ($this->sellInventoryConfig === null) {
             $config = Sell_Inventory_Configuration::getDefaultConfiguration();
@@ -585,7 +585,7 @@ class ApiFactory
         return $this->sellInventoryConfig;
     }
 
-    private function getSellLogisticsConfiguration() : Sell_Logistics_Configuration
+    protected function getSellLogisticsConfiguration() : Sell_Logistics_Configuration
     {
         if ($this->sellLogisticsConfig === null) {
             $config = Sell_Logistics_Configuration::getDefaultConfiguration();
@@ -598,7 +598,7 @@ class ApiFactory
         return $this->sellLogisticsConfig;
     }
 
-    private function getSellMarketingConfiguration() : Sell_Marketing_Configuration
+    protected function getSellMarketingConfiguration() : Sell_Marketing_Configuration
     {
         if ($this->sellMarketingConfig === null) {
             $config = Sell_Marketing_Configuration::getDefaultConfiguration();
@@ -611,7 +611,7 @@ class ApiFactory
         return $this->sellMarketingConfig;
     }
 
-    private function getSellMetadataConfiguration() : Sell_Metadata_Configuration
+    protected function getSellMetadataConfiguration() : Sell_Metadata_Configuration
     {
         if ($this->sellMetadataConfig === null) {
             $config = Sell_Metadata_Configuration::getDefaultConfiguration();
