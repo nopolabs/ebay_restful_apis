@@ -61,7 +61,7 @@
             "Nopolabs\\EBay\\Sell\\Logistics\\" : "sell_logistics/test/",
             "Nopolabs\\EBay\\Sell\\Marketing\\" : "sell_marketing/test/",
             "Nopolabs\\EBay\\Sell\\Metadata\\" : "sell_metadata/test/",
-            "Nopolabs\\EBay\\Api\\Factory\\" : "api_factory/src/"
+            "Nopolabs\\EBay\\Api\\Factory\\" : "api_factory/test/"
         }
     }
 }

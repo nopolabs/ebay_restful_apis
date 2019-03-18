@@ -38,7 +38,7 @@ $config = new ApiConfig([
     'clientSecret' => 'INSERT Cert ID (Client Secret) HERE',
 ]);
 
-$factory = new ApiFactory(new ApiConfig($config));
+$factory = new ApiFactory($config);
 
 $categoryTreeApi = $factory->getCategoryTreeApi();
 
